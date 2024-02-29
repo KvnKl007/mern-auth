@@ -15,7 +15,7 @@ export default function Header() {
                     <a href='/about'>About</a>
                 </li>
                 <li>
-                    <a href='/signin'>Signin</a>
+                    <a href='/signin'>Sign In</a>
                 </li>
             </ul>
         </div>
