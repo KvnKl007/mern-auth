@@ -2,6 +2,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import Oauth from '../components/Oauth';
 
 
 export default function SignIn() {
@@ -49,14 +50,15 @@ export default function SignIn() {
         <button disabled={loading} className='bg-slate-700 text-white p-3 
         rounded-lg uppercase hover:opacity-95 
         disabled:opacity-80'>{loading ? 'Loading...' : 'Sign In'}</button>
-        <div className='flex gap-2 mt-5'>
+        <Oauth />
+      </form>
+      <div className='flex gap-2 mt-5'>
           <p>Dont Have an account ?</p>
           <Link to='/signup'>
             <span className='text-blue-500'>Sign Up</span>
           </Link>
         </div>
-        <p className='text-red-700'>{error ? error.message || 'Something went wrong!': ''}</p>
-      </form>
+        <p className='text-red-700'>{error ? error.message || 'Something went wrong!' : ''}</p>
     </div>
   )
 }
