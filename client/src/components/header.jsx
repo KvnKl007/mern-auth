@@ -8,15 +8,9 @@ export default function Header() {
             <h1 className='font-bold'>Auth App</h1>
             </Link>
             <ul className='flex gap-4'>
-                <li>
-                    <a href='/'>Home</a>
-                </li>
-                <li>
-                    <a href='/about'>About</a>
-                </li>
-                <li>
-                    <a href='/signin'>Sign In</a>
-                </li>
+                <Link to='/'><li>Home</li></Link>
+                <Link to='/about'><li>About</li></Link>
+                <Link to='/signin'><li>Sign In</li></Link>
             </ul>
         </div>
     </div>

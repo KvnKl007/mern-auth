@@ -1,8 +1,8 @@
-import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
 import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../redux/user/userSlice';
-export default function Oauth() {
+export default function OAuth() {
     const dispatch = useDispatch();
     const handleGoogleClick = async () => {
         try {
@@ -12,7 +12,7 @@ export default function Oauth() {
             const res = await fetch('/api/auth/google', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     name: result.user.displayName,
