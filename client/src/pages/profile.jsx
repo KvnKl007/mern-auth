@@ -95,17 +95,24 @@ export default function Profile() {
             ('')}
         </p>
 
-        <input type="text" 
+        <input 
+        defaultValue={currentUser.username}
+        type="text" 
         id='username'
         placeholder='Username' 
         className='bg-slate-100 rounded-lg p-3' 
         onChange={handleChange}/>
-        <input type="email" 
+
+        <input 
+        defaultValue={currentUser.email}
+        type="email" 
         id='email'
         placeholder='Email' 
         className='bg-slate-100 rounded-lg p-3' 
         onChange={handleChange}/>
-        <input type="password" 
+
+        <input
+        type="password" 
         id='password'
         placeholder='Password' 
         className='bg-slate-100 rounded-lg p-3' 
