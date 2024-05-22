@@ -9,7 +9,8 @@ import {
   updateUserFailure,
   deleteUserStart,
   deleteUserSuccess,
-  deleteUserFailure } 
+  deleteUserFailure, 
+  signOut } 
   from '../redux/user/userSlice';
 
 export default function Profile() {
@@ -78,7 +79,7 @@ export default function Profile() {
 
   const handleDeleteAccount = async () => {
     try {
-      dispatch(updateUserStart());
+      dispatch(deleteUserStart());
       const res = await fetch (`/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
@@ -91,7 +92,16 @@ export default function Profile() {
     } catch (error) {
       dispatch(deleteUserFailure(error))
     }
-  }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await fetch('/api/auth/signout');
+      dispatch(signOut());
+    } catch (error) {
+      console.log(error)
+    }
+}
 
   return (
     <div className='p-3 max-w-lg mx-auto'>
@@ -148,7 +158,7 @@ export default function Profile() {
       <div className='flex justify-between'>
         <span onClick={handleDeleteAccount} className='text-red-700 mt-5 
         cursor-pointer'>Delete Account</span>
-        <span className='text-red-700 mt-5 
+        <span onClick={handleSignOut} className='text-red-700 mt-5 
         cursor-pointer'>Sign Out</span>
       </div>
       <p className='text-red-700 mt-5'>{error && "Something went wrong!"}</p>
